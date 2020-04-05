@@ -1,6 +1,6 @@
 import React from 'react';
 
-var VideoListEntry = ({video, handleVideoListEntryTitleClick}) => (
+var VideoListEntry = ({video, videoListHandler}) => (
   <div className="video-list-entry">
     <div className="media-left media-middle">
       <img className="media-object" src={video.snippet.thumbnails.default.url} alt="" />
@@ -8,7 +8,7 @@ var VideoListEntry = ({video, handleVideoListEntryTitleClick}) => (
     <div className="media-body">
       <div
         className="video-list-entry-title"
-        onClick={() => handleVideoListEntryTitleClick(video)}
+        onClick={() => videoListHandler(video)}
       >
         {video.snippet.title}
       </div>
@@ -17,8 +17,8 @@ var VideoListEntry = ({video, handleVideoListEntryTitleClick}) => (
   </div>
 );
 
-VideoListEntry.propTypes = {
-  video: React.PropTypes.object.isRequired
-};
+// VideoListEntry.propTypes = {
+//   video: React.PropTypes.object.isRequired
+// };
 
 export default VideoListEntry;
