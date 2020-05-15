@@ -6,18 +6,19 @@ import _ from 'lodash';
 
 
 var handleVideoSearch = (q) => {
+  console.log('handleVideoSearch, QUERY: ', q);
   return _.debounce((dispatch) => {
+
     var options = {
       key: YOUTUBE_API_KEY,
       query: q
     };
 
-    this.props.searchYouTube(options, (videos) =>
-      searchYouTube(options, (videos) => {
-        dispatch(changeVideoList(videos));
-        dispatch(changeVideo(videos[0]));
-      })
-    );
+    searchYouTube(options, (videos) => {
+      console.log('handleVideoSearch: ', videos)
+      dispatch(changeVideoList(videos));
+      dispatch(changeVideo(videos[0]));
+    });
   }, 200);
   //TODO:  Write an asynchronous action to handle a video search!
 };

@@ -2,12 +2,14 @@ import React from 'react';
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
 import Search from './Search.js';
+import { connect } from 'react-redux';
 
 const App = () => {
   // this.getYouTubeVideos = this.getYouTubeVideos.bind
 
   //TODO: swap out the React components below for the container components
   //  you wrote in the 'containers' directory.
+  { console.log('step 2 App.js: '); }
   return (
     <div>
       <nav className="navbar">
@@ -24,7 +26,11 @@ const App = () => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
-export default App;
+const matStateToProps = (state) => {
+  return {};
+};
+
+export default connect(matStateToProps, null)(App);
